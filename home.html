@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vectordox</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        /* 내비게이션 바 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .navbar .logo {
+            padding-top: 20px;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+        }
+
+        .navbar .menu {
+            display: flex;
+            gap: 40px;
+            padding-top: 20px;
+        }
+
+        .navbar .menu a {
+            color: white;
+            font-size: 1rem;
+            font-family: Pretendard, sans-serif;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .menu a:hover {
+            color: #b5e200;
+        }
+
+
+        /* 마퀴 */
+        .marquee-container {
+            position: absolute;
+            width: 100%;
+            overflow: hidden;
+            bottom: 10%; 
+        }
+
+        .marquee {
+            display: flex;
+            white-space: nowrap;
+            font-size: 2rem;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee:nth-child(2) {
+            animation-direction: reverse;
+        }
+
+        .marquee:nth-child(3) {
+            animation-duration: 22s;
+        }
+
+        .rectangle {
+            border: 2px solid #b5e200;
+            color: #b5e200;
+            text-align: center;
+            font-family: Pretendard, sans-serif;
+            font-size: 4rem;
+            padding: 10px 50px;
+            border-radius: 100px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .rectangle:hover {
+            background-color: #b5e200;
+            color: white;
+            animation-play-state: paused;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 내비게이션 바 -->
+    <nav class="navbar" id="navbar">
+        <a href="home.html" class="logo"><img src="logo.png" alt="My Logo"></a>
+        <div class="menu">
+            <a href="profile.html">Profile</a>
+            <a href="design.html">Design</a>
+            <a href="#">Artwork</a>
+            <a href="#">Inspiration</a>
+            <a href="#">Playlist</a>
+        </div>
+    </nav>
+
+    <!-- 마퀴 -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <div class="rectangle">Design</div>
+            <div class="rectangle">Creative</div>
+            <div class="rectangle">UX/UI</div>
+            <div class="rectangle">Branding</div>
+            <div class="rectangle">Product</div>
+            <div class="rectangle">Visual</div>
+        </div>
+        <div class="marquee">
+            <div class="rectangle">Drawing</div>
+            <div class="rectangle">Illustration</div>
+            <div class="rectangle">Croquis</div>
+            <div class="rectangle">Doodle</div>
+            <div class="rectangle">Character</div>
+            <div class="rectangle">Digital</div>
+        </div>
+        <div class="marquee">
+            <div class="rectangle">Music</div>
+            <div class="rectangle">Movie</div>
+            <div class="rectangle">Cartoon</div>
+            <div class="rectangle">Game</div>
+            <div class="rectangle">Contents</div>
+            <div class="rectangle">Novel</div>
+        </div>
+    </div>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
